@@ -21,7 +21,16 @@ idx = zeros(size(X,1), 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 
-
+for i=1:length(X)
+    dis = inf;
+    for j=1:K
+        kdis = norm(X(i, :) - centroids(j, :));
+        if (kdis < dis)
+            dis = kdis;
+            idx(i) = j;
+        end
+    end
+end
 
 
 
